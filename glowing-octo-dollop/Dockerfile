@@ -1,4 +1,4 @@
-FROM python:3.8.7-buster
+FROM ubuntu:18.04
 
 # Update
 RUN sudo apt-get update
