@@ -1,0 +1,22 @@
+version: '3'
+services: 
+  # サービス名
+  nuxt:
+    # このコンテナの名前
+    container_name: batting-order-maker-frontend
+
+    # Dockerfileの場所
+    build: .
+
+    # ホスト上のディレクトリを、コンテナ内にあるディレクトリにマウントする
+    # ホスト上のカレントディレクトリをコンテナ内の/usr/local/srcにマウントしている
+    # イメージを削除してもマウント下ディレクトリに入っていた入っていたファイルは削除されない
+    volumes: 
+      - .:/usr/local/src
+
+      # コンテナを起動させ続ける
+    tty: true
+
+    # ポートフォワード（ホスト：コンテナ）
+    ports: 
+      - "3000:3000"
